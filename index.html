@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Leaks</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+    }
+    #iframe-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      z-index: 999999;
+    }
+  </style>
+</head>
+<body>
+  <iframe src="https://computerwiz541.wixsite.com/global-leaks" style="position:fixed; top:-50px; left:0px; bottom:0px; right:0px; width:100%; height:105%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>  
+
+  <script type="text/javascript">
+    if (screen.width <= 900) {
+      document.location = "./Mobile.html";
+    }
+
+    (function() {
+      var devtoolsOpen = false;
+      var threshold = 160;
+      
+      setInterval(function() {
+        if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
+          devtoolsOpen = true;
+        } else {
+          devtoolsOpen = false;
+        }
+
+        if (devtoolsOpen) {
+          window.close(); // Attempt to close the window
+          window.location = 'about:blank'; // Redirect to a blank page
+        }
+      }, 500);
+    })();
+  </script>
+</body>
+</html>
